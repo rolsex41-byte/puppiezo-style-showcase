@@ -4,7 +4,7 @@ import petProducts from "@/assets/pet-products.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-glow min-h-[600px]">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-glow min-h-[100vh] flex items-center">
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}

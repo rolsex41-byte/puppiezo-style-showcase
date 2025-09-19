@@ -1,6 +1,14 @@
-import { Search, Phone, User, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Search, Phone, User, Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const navItems = [
@@ -37,8 +45,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-3xl font-bold">
-              <span className="text-primary">PUPPIE</span>
-              <span className="text-accent">ZO</span>
+              <span className="text-primary">PET</span>
+              <span className="text-accent">ZEE</span>
             </h1>
           </div>
 
@@ -71,21 +79,83 @@ const Header = () => {
       {/* Navigation */}
       <nav className="border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="flex items-center">
-            {navItems.map((item, index) => (
-              <Button
-                key={item}
-                variant={index === 0 ? "default" : "ghost"}
-                className={`rounded-none py-6 px-6 ${
-                  index === 0 
-                    ? "bg-accent text-accent-foreground hover:bg-accent/90" 
-                    : "hover:bg-muted"
-                }`}
-              >
-                {item}
-              </Button>
-            ))}
-          </div>
+          <NavigationMenu className="mx-0 max-w-full">
+            <NavigationMenuList className="flex-wrap justify-start">
+              <NavigationMenuItem>
+                <Link to="/">
+                  <Button variant="default" className="rounded-none py-6 px-6 bg-accent text-accent-foreground hover:bg-accent/90">
+                    Home
+                  </Button>
+                </Link>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground data-[state=open]:bg-primary data-[state=open]:text-primary-foreground">
+                  Dogs
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-6 w-[400px]">
+                    <Link to="/dogs" className="block hover:bg-muted p-2 rounded">All Dogs</Link>
+                    <Link to="/dogs?breed=golden-retriever" className="block hover:bg-muted p-2 rounded">Golden Retriever</Link>
+                    <Link to="/dogs?breed=german-shepherd" className="block hover:bg-muted p-2 rounded">German Shepherd</Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground data-[state=open]:bg-primary data-[state=open]:text-primary-foreground">
+                  Cats
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-6 w-[400px]">
+                    <Link to="/cats" className="block hover:bg-muted p-2 rounded">All Cats</Link>
+                    <Link to="/cats?breed=persian" className="block hover:bg-muted p-2 rounded">Persian</Link>
+                    <Link to="/cats?breed=british-shorthair" className="block hover:bg-muted p-2 rounded">British Shorthair</Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/available-pets">
+                  <Button variant="ghost" className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground">
+                    Available Pets
+                  </Button>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/shop">
+                  <Button variant="ghost" className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground">
+                    Shop
+                  </Button>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/blog">
+                  <Button variant="ghost" className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground">
+                    Blog
+                  </Button>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/about">
+                  <Button variant="ghost" className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground">
+                    About Us
+                  </Button>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/work-with-us">
+                  <Button variant="ghost" className="rounded-none py-6 px-6 hover:bg-primary hover:text-primary-foreground">
+                    Work With Us
+                  </Button>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </nav>
     </header>

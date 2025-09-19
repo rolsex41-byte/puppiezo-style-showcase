@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Puppiezo Design System - Pet Ecosystem Theme
+/* Petzee Design System - Pet Ecosystem Theme
 Beautiful turquoise/blue gradients with orange accents
 All colors MUST be HSL.
 */
@@ -18,7 +18,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 20%;
 
-    /* Puppiezo brand colors */
+    /* Petzee brand colors */
     --primary: 191 100% 42%; /* Turquoise #00B8D4 */
     --primary-foreground: 0 0% 100%;
     --primary-glow: 199 95% 74%; /* Lighter turquoise #4FC3F7 */

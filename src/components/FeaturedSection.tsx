@@ -4,7 +4,7 @@ const FeaturedSection = () => {
   const mediaLogos = [
     {
       name: "Zee News",
-      logo: "https://via.placeholder.com/120x40/FF6B35/FFFFFF?text=ZEE+NEWS",
+      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=40&fit=crop",
       description: "International Dog Day 2023 feature"
     },
     {
