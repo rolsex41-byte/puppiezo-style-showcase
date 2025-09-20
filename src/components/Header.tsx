@@ -1,7 +1,8 @@
-import { Search, Phone, User, Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
+import { Search, Phone, User, Facebook, Instagram, Linkedin, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,23 +10,19 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Header = () => {
-  const navItems = [
-    "Home",
-    "Dogs", 
-    "Cats",
-    "Available Pets",
-    "Breeds Information",
-    "Adoptions",
-    "Shop",
-    "About Us",
-    "Work With Us"
-  ];
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="w-full bg-background shadow-sm">
-      {/* Top bar with contact info */}
+      {/* Top bar with contact info - Commented out for future use */}
+      {/* 
       <div className="border-b border-border px-4 py-2">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -38,21 +35,24 @@ const Header = () => {
           </div>
         </div>
       </div>
+      */
 
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-3xl font-bold">
-              <span className="text-primary">PET</span>
-              <span className="text-accent">ZEE</span>
-            </h1>
+            <Link to="/">
+              <h1 className="text-3xl font-bold">
+                <span className="text-primary">PET</span>
+                <span className="text-accent">ZEE</span>
+              </h1>
+            </Link>
           </div>
 
-          {/* Search bar */}
-          <div className="flex-1 max-w-md mx-8">
-            <div className="relative">
+          {/* Search bar - Hidden on mobile */}
+          <div className="hidden md:flex flex-1 max-w-md mx-8">
+            <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input 
                 placeholder="Search for breeds..." 
@@ -61,8 +61,8 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Social icons */}
-          <div className="flex items-center gap-2">
+          {/* Desktop Social icons */}
+          <div className="hidden md:flex items-center gap-2">
             <Button variant="outline" size="icon" className="rounded-full">
               <Facebook className="h-4 w-4" />
             </Button>
@@ -73,11 +73,89 @@ const Header = () => {
               <Linkedin className="h-4 w-4" />
             </Button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-80">
+              <div className="flex flex-col space-y-4 mt-6">
+                {/* Mobile Search */}
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  <Input 
+                    placeholder="Search for breeds..." 
+                    className="pl-10 rounded-full border-2 border-border focus:border-primary"
+                  />
+                </div>
+                
+                {/* Mobile Navigation */}
+                <nav className="flex flex-col space-y-2">
+                  <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Home
+                    </Button>
+                  </Link>
+                  <Link to="/dogs" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Dogs
+                    </Button>
+                  </Link>
+                  <Link to="/cats" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Cats
+                    </Button>
+                  </Link>
+                  <Link to="/available-pets" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Available Pets
+                    </Button>
+                  </Link>
+                  <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Shop
+                    </Button>
+                  </Link>
+                  <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Blog
+                    </Button>
+                  </Link>
+                  <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      About Us
+                    </Button>
+                  </Link>
+                  <Link to="/work-with-us" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start text-lg">
+                      Work With Us
+                    </Button>
+                  </Link>
+                </nav>
+
+                {/* Mobile Social icons */}
+                <div className="flex items-center gap-2 pt-4">
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <Facebook className="h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <Instagram className="h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <Linkedin className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="border-t border-border">
+      {/* Desktop Navigation - Hidden on mobile */}
+      <nav className="hidden md:block border-t border-border">
         <div className="container mx-auto px-4">
           <NavigationMenu className="mx-0 max-w-full">
             <NavigationMenuList className="flex-wrap justify-start">

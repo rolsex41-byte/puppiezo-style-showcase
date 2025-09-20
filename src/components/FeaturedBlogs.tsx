@@ -12,7 +12,7 @@ const FeaturedBlogs = () => {
       excerpt: "Everything you need to know before bringing your first dog home.",
       image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=300&h=200&fit=crop",
       category: "Dog Care",
-      date: "2024-01-15",
+      date: "2025-09-15",
       readTime: "5 min read"
     },
     {
@@ -21,7 +21,7 @@ const FeaturedBlogs = () => {
       excerpt: "Decode your feline friend's mysterious behaviors.",
       image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=200&fit=crop",
       category: "Cat Care",
-      date: "2024-01-12",
+      date: "2025-09-12",
       readTime: "7 min read"
     },
     {
@@ -30,7 +30,7 @@ const FeaturedBlogs = () => {
       excerpt: "Learn about balanced nutrition for your pets.",
       image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=300&h=200&fit=crop",
       category: "Pet Health",
-      date: "2024-01-10",
+      date: "2025-09-10",
       readTime: "8 min read"
     }
   ];
