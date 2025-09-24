@@ -14,7 +14,7 @@ const Blog = () => {
       excerpt: "Bringing home your first dog is exciting! Here are the essential tips every new dog owner should know to ensure a smooth transition.",
       image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=250&fit=crop",
       author: "Dr. Priya Sharma",
-      date: "2024-01-15",
+      date: "September 15, 2025",
       readTime: "5 min read",
       category: "Dog Care",
       tags: ["Beginner", "Dog Training", "Pet Care"]
@@ -25,7 +25,7 @@ const Blog = () => {
       excerpt: "Decode your feline friend's mysterious behaviors and learn what they're trying to communicate with you.",
       image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=250&fit=crop",
       author: "Dr. Rajesh Kumar",
-      date: "2024-01-12",
+      date: "September 18, 2025",
       readTime: "7 min read",
       category: "Cat Care",
       tags: ["Cat Behavior", "Pet Psychology", "Understanding Pets"]
@@ -36,7 +36,7 @@ const Blog = () => {
       excerpt: "Learn about balanced nutrition for dogs and cats, including what foods to avoid and how to choose the right diet for your pet's age and health.",
       image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400&h=250&fit=crop",
       author: "Dr. Anita Patel",
-      date: "2024-01-10",
+      date: "September 22, 2025",
       readTime: "8 min read",
       category: "Pet Health",
       tags: ["Nutrition", "Pet Health", "Diet"]
@@ -47,7 +47,7 @@ const Blog = () => {
       excerpt: "Transform your home into a safe and comfortable environment for your new pet with these practical tips and ideas.",
       image: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&h=250&fit=crop",
       author: "Sarah Johnson",
-      date: "2024-01-08",
+      date: "September 25, 2025",
       readTime: "6 min read",
       category: "Pet Care",
       tags: ["Home Setup", "Pet Safety", "Interior Design"]
@@ -58,7 +58,7 @@ const Blog = () => {
       excerpt: "Keep your pet looking and feeling their best with these professional grooming techniques you can do at home.",
       image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=400&h=250&fit=crop",
       author: "Mike Thompson",
-      date: "2024-01-05",
+      date: "September 28, 2025",
       readTime: "9 min read",
       category: "Grooming",
       tags: ["Grooming", "Pet Care", "DIY"]
@@ -69,7 +69,7 @@ const Blog = () => {
       excerpt: "Explore the pros and cons of pet insurance and learn how to choose the right coverage for your furry friend.",
       image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&h=250&fit=crop",
       author: "Dr. Neha Gupta",
-      date: "2024-01-03",
+      date: "September 30, 2025",
       readTime: "5 min read",
       category: "Pet Health",
       tags: ["Insurance", "Financial Planning", "Pet Health"]

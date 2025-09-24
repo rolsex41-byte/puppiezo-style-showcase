@@ -32,26 +32,28 @@ const FeaturedSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {mediaLogos.map((media, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary/20"
-            >
-              <CardContent className="p-6 text-center">
-                <div className="mb-4">
-                  <img 
-                    src={media.logo} 
-                    alt={media.name}
-                    className="mx-auto h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-                <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                  {media.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="overflow-x-auto">
+          <div className="flex gap-6 pb-4 min-w-max">
+            {mediaLogos.map((media, index) => (
+              <Card 
+                key={index} 
+                className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-primary/20 min-w-[200px] flex-shrink-0"
+              >
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4">
+                    <img 
+                      src={media.logo} 
+                      alt={media.name}
+                      className="mx-auto h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                    {media.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Award, ShoppingBag, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CategoriesSection = () => {
   const categories = [
@@ -9,28 +10,32 @@ const CategoriesSection = () => {
       description: "Find your perfect canine companion from our verified breeders",
       icon: Heart,
       color: "text-primary",
-      bgColor: "bg-primary/10"
+      bgColor: "bg-primary/10",
+      link: "/dogs"
     },
     {
-      title: "Individual Pets", 
-      description: "Discover unique pets looking for their forever homes",
+      title: "Cats", 
+      description: "Discover beautiful feline companions from trusted sources",
       icon: Award,
       color: "text-accent",
-      bgColor: "bg-accent/10"
+      bgColor: "bg-accent/10",
+      link: "/cats"
     },
     {
       title: "Pet Products",
       description: "Premium quality products for your beloved pets",
       icon: ShoppingBag, 
       color: "text-primary",
-      bgColor: "bg-primary/10"
+      bgColor: "bg-primary/10",
+      link: "/shop"
     },
     {
-      title: "Community",
-      description: "Join our community of pet lovers and experts",
+      title: "Available Pets",
+      description: "Browse pets ready for adoption and find your perfect match",
       icon: Users,
       color: "text-accent", 
-      bgColor: "bg-accent/10"
+      bgColor: "bg-accent/10",
+      link: "/available-pets"
     }
   ];
 
@@ -50,10 +55,10 @@ const CategoriesSection = () => {
           {categories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card 
-                key={index}
-                className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-2 hover:border-primary/30 cursor-pointer"
-              >
+              <Link to={category.link} key={index}>
+                <Card 
+                  className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-2 hover:border-primary/30 cursor-pointer h-full"
+                >
                 <CardHeader className="text-center pb-4">
                   <div className={`w-16 h-16 ${category.bgColor} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className={`h-8 w-8 ${category.color}`} />
@@ -74,6 +79,7 @@ const CategoriesSection = () => {
                   </Button>
                 </CardContent>
               </Card>
+              </Link>
             );
           })}
         </div>

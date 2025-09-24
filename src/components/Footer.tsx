@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
@@ -18,8 +19,8 @@ const Footer = () => {
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl font-bold mb-4">
-                <span className="text-primary">PUPPIE</span>
-                <span className="text-accent">ZO</span>
+                <span className="text-primary">PET</span>
+                <span className="text-accent">ZEE</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 India's most trusted pet ecosystem connecting pet lovers with quality companions, products, and services.
@@ -33,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-sm">info@puppiezo.com</span>
+                <span className="text-sm">info@petzee.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -46,16 +47,41 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6 text-foreground">Quick Links</h3>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <Button 
-                    variant="link" 
-                    className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link}
+              <li>
+                <Link to="/about">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    About Us
                   </Button>
-                </li>
-              ))}
+                </Link>
+              </li>
+              <li>
+                <Link to="/dogs">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Dogs
+                  </Button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/cats">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Cats
+                  </Button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/available-pets">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Available Pets
+                  </Button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Blog
+                  </Button>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -63,16 +89,37 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6 text-foreground">Our Services</h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <Button 
-                    variant="link" 
-                    className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {service}
+              <li>
+                <Link to="/available-pets">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Pet Adoption
                   </Button>
-                </li>
-              ))}
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Pet Products
+                  </Button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/work-with-us">
+                  <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                    Work With Us
+                  </Button>
+                </Link>
+              </li>
+              <li>
+                <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                  Pet Training
+                </Button>
+              </li>
+              <li>
+                <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary transition-colors">
+                  Pet Insurance
+                </Button>
+              </li>
             </ul>
           </div>
 
@@ -111,18 +158,24 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Puppiezo. All rights reserved.
+            © 2024 Petzee. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Button variant="link" className="text-sm text-muted-foreground hover:text-primary p-0">
-              Privacy Policy
-            </Button>
-            <Button variant="link" className="text-sm text-muted-foreground hover:text-primary p-0">
-              Terms of Service
-            </Button>
-            <Button variant="link" className="text-sm text-muted-foreground hover:text-primary p-0">
-              Cookie Policy
-            </Button>
+            <Link to="/privacy-policy">
+              <Button variant="link" className="text-sm text-muted-foreground hover:text-primary p-0">
+                Privacy Policy
+              </Button>
+            </Link>
+            <Link to="/terms-of-service">
+              <Button variant="link" className="text-sm text-muted-foreground hover:text-primary p-0">
+                Terms of Service
+              </Button>
+            </Link>
+            <Link to="/cookie-policy">
+              <Button variant="link" className="text-sm text-muted-foreground hover:text-primary p-0">
+                Cookie Policy
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
