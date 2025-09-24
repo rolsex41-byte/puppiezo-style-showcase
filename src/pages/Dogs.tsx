@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,6 +49,84 @@ const Dogs = () => {
       gender: "Male",
       vaccinated: true,
       features: ["Active", "Friendly", "Good with Pets"]
+    },
+    {
+      id: 4,
+      name: "Rottweiler",
+      price: "₹30,000 - ₹55,000",
+      image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=300&h=200&fit=crop",
+      breeder: "Chennai Canine Club",
+      location: "Chennai, Tamil Nadu",
+      rating: 4.6,
+      age: "12 weeks",
+      gender: "Male",
+      vaccinated: true,
+      features: ["Protective", "Confident", "Fearless"]
+    },
+    {
+      id: 5,
+      name: "Siberian Husky",
+      price: "₹40,000 - ₹70,000",
+      image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=300&h=200&fit=crop",
+      breeder: "Pune Pet Palace",
+      location: "Pune, Maharashtra",
+      rating: 4.8,
+      age: "8 weeks",
+      gender: "Female",
+      vaccinated: true,
+      features: ["Energetic", "Independent", "Cold Weather"]
+    },
+    {
+      id: 6,
+      name: "Beagle",
+      price: "₹15,000 - ₹30,000",
+      image: "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=300&h=200&fit=crop",
+      breeder: "Hyderabad Hounds",
+      location: "Hyderabad, Telangana",
+      rating: 4.5,
+      age: "9 weeks",
+      gender: "Male",
+      vaccinated: true,
+      features: ["Gentle", "Friendly", "Curious"]
+    },
+    {
+      id: 7,
+      name: "Poodle",
+      price: "₹25,000 - ₹50,000",
+      image: "https://images.unsplash.com/photo-1616190494016-1b8146d5ac8d?w=300&h=200&fit=crop",
+      breeder: "Kolkata Kennels",
+      location: "Kolkata, West Bengal",
+      rating: 4.7,
+      age: "11 weeks",
+      gender: "Female",
+      vaccinated: true,
+      features: ["Intelligent", "Hypoallergenic", "Active"]
+    },
+    {
+      id: 8,
+      name: "Bulldog",
+      price: "₹35,000 - ₹65,000",
+      image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&h=200&fit=crop",
+      breeder: "Ahmedabad Animal House",
+      location: "Ahmedabad, Gujarat",
+      rating: 4.4,
+      age: "10 weeks",
+      gender: "Male",
+      vaccinated: true,
+      features: ["Calm", "Courageous", "Friendly"]
+    },
+    {
+      id: 9,
+      name: "Border Collie",
+      price: "₹30,000 - ₹60,000",
+      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=200&fit=crop",
+      breeder: "Jaipur Pet Junction",
+      location: "Jaipur, Rajasthan",
+      rating: 4.9,
+      age: "7 weeks",
+      gender: "Female",
+      vaccinated: true,
+      features: ["Highly Intelligent", "Energetic", "Responsive"]
     }
   ];
 
@@ -135,7 +214,9 @@ const Dogs = () => {
                 </div>
                 
                 <div className="flex gap-2">
-                  <Button className="flex-1">View Details</Button>
+                  <Link to={`/dogs/${dog.id}`}>
+                    <Button className="flex-1">View Details</Button>
+                  </Link>
                   <Button variant="outline" size="icon">
                     <Phone className="h-4 w-4" />
                   </Button>

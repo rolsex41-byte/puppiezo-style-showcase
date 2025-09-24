@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,6 +49,84 @@ const Cats = () => {
       gender: "Female",
       vaccinated: true,
       features: ["Large Size", "Friendly", "Intelligent"]
+    },
+    {
+      id: 4,
+      name: "Ragdoll",
+      price: "₹20,000 - ₹45,000",
+      image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=300&h=200&fit=crop",
+      breeder: "Chennai Cat Corner",
+      location: "Chennai, Tamil Nadu",
+      rating: 4.6,
+      age: "9 weeks",
+      gender: "Male",
+      vaccinated: true,
+      features: ["Docile", "Affectionate", "Blue Eyes"]
+    },
+    {
+      id: 5,
+      name: "Scottish Fold",
+      price: "₹35,000 - ₹60,000",
+      image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=200&fit=crop",
+      breeder: "Pune Purr Palace",
+      location: "Pune, Maharashtra",
+      rating: 4.8,
+      age: "11 weeks",
+      gender: "Female",
+      vaccinated: true,
+      features: ["Folded Ears", "Playful", "Social"]
+    },
+    {
+      id: 6,
+      name: "Siamese",
+      price: "₹18,000 - ₹40,000",
+      image: "https://images.unsplash.com/photo-1573824655653-592d84c5e9c4?w=300&h=200&fit=crop",
+      breeder: "Hyderabad Cat House",
+      location: "Hyderabad, Telangana",
+      rating: 4.5,
+      age: "7 weeks",
+      gender: "Male",
+      vaccinated: true,
+      features: ["Vocal", "Intelligent", "Point Coloration"]
+    },
+    {
+      id: 7,
+      name: "Bengal",
+      price: "₹40,000 - ₹80,000",
+      image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=300&h=200&fit=crop",
+      breeder: "Kolkata Cat Kingdom",
+      location: "Kolkata, West Bengal",
+      rating: 4.9,
+      age: "10 weeks",
+      gender: "Female",
+      vaccinated: true,
+      features: ["Wild Pattern", "Energetic", "Athletic"]
+    },
+    {
+      id: 8,
+      name: "Russian Blue",
+      price: "₹25,000 - ₹50,000",
+      image: "https://images.unsplash.com/photo-1596492784531-6e4eb5ea9993?w=300&h=200&fit=crop",
+      breeder: "Ahmedabad Feline Friends",
+      location: "Ahmedabad, Gujarat",
+      rating: 4.7,
+      age: "8 weeks",
+      gender: "Male",
+      vaccinated: true,
+      features: ["Blue Coat", "Quiet", "Shy"]
+    },
+    {
+      id: 9,
+      name: "Sphynx",
+      price: "₹50,000 - ₹90,000",
+      image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300&h=200&fit=crop",
+      breeder: "Jaipur Cat Care",
+      location: "Jaipur, Rajasthan",
+      rating: 4.4,
+      age: "12 weeks",
+      gender: "Female",
+      vaccinated: true,
+      features: ["Hairless", "Warm", "Outgoing"]
     }
   ];
 
@@ -135,7 +214,9 @@ const Cats = () => {
                 </div>
                 
                 <div className="flex gap-2">
-                  <Button className="flex-1">View Details</Button>
+                  <Link to={`/cats/${cat.id}`}>
+                    <Button className="flex-1">View Details</Button>
+                  </Link>
                   <Button variant="outline" size="icon">
                     <Phone className="h-4 w-4" />
                   </Button>
