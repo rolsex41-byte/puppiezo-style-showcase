@@ -35,7 +35,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      */
+      */}
 
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
