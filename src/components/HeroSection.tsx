@@ -1,66 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
 import heroPets from "@/assets/hero-pets.jpg";
 import petProducts from "@/assets/pet-products.jpg";
 
 const HeroSection = () => {
-  const bannerTexts = [
-    "🐕 Premium Dog Breeds Available",
-    "🐱 Beautiful Cats for Adoption", 
-    "💝 Pet Products & Accessories",
-    "🏥 Professional Veterinary Care",
-    "🎓 Pet Training Services",
-    "🛁 Grooming & Spa Services"
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % bannerTexts.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + bannerTexts.length) % bannerTexts.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-glow min-h-screen flex items-center">
-      {/* Hero Banner with Arrows */}
-      <div className="absolute top-0 left-0 w-full bg-accent text-accent-foreground py-4 z-10">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={prevSlide}
-            className="text-accent-foreground hover:bg-accent-foreground/10"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Button>
-          
-          <div className="flex-1 text-center">
-            <span className="text-lg font-semibold">
-              {bannerTexts[currentIndex]}
-            </span>
-          </div>
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={nextSlide}
-            className="text-accent-foreground hover:bg-accent-foreground/10"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Button>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-20 mt-16">
+      <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left content */}
           <div className="text-white space-y-8">
