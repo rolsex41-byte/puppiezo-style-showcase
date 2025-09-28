@@ -117,6 +117,12 @@ const Shop = () => {
     );
   };
 
+  const handleAddToCart = (product: any) => {
+    const message = `I am interested about this product: ${product.name}`;
+    const whatsappUrl = `https://wa.me/9876543210?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -229,6 +235,7 @@ const Shop = () => {
                   <Button 
                     className="flex-1" 
                     disabled={!product.inStock}
+                    onClick={() => handleAddToCart(product)}
                   >
                     <ShoppingCart className="h-4 w-4 mr-2" />
                     {product.inStock ? 'Add to Cart' : 'Out of Stock'}
