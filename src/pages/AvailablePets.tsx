@@ -13,60 +13,41 @@ const AvailablePets = () => {
   const [selectedType, setSelectedType] = useState("all");
   const [likedPets, setLikedPets] = useState<number[]>([]);
 
+  // Dogs from Dogs page
+  const dogs = [
+    { id: 1, name: "Golden Retriever", price: "₹25,000 - ₹45,000", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&h=200&fit=crop", breeder: "Mumbai Pet Paradise", location: "Mumbai, Maharashtra", rating: 4.8, age: "2 months", gender: "Male", vaccinated: true, features: ["Family Friendly", "Easy Training", "Good with Kids"] },
+    { id: 2, name: "German Shepherd", price: "₹35,000 - ₹60,000", image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=300&h=200&fit=crop", breeder: "Delhi Dog Haven", location: "Delhi, NCR", rating: 4.9, age: "3 months", gender: "Female", vaccinated: true, features: ["Guard Dog", "Intelligent", "Loyal"] },
+    { id: 3, name: "Labrador Retriever", price: "₹20,000 - ₹40,000", image: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300&h=200&fit=crop", breeder: "Bangalore Breeders", location: "Bangalore, Karnataka", rating: 4.7, age: "10 weeks", gender: "Male", vaccinated: true, features: ["Active", "Friendly", "Good with Pets"] },
+    { id: 4, name: "Rottweiler", price: "₹30,000 - ₹55,000", image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=300&h=200&fit=crop", breeder: "Chennai Canine Club", location: "Chennai, Tamil Nadu", rating: 4.6, age: "12 weeks", gender: "Male", vaccinated: true, features: ["Protective", "Confident", "Fearless"] },
+    { id: 5, name: "Siberian Husky", price: "₹40,000 - ₹70,000", image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=300&h=200&fit=crop", breeder: "Pune Pet Palace", location: "Pune, Maharashtra", rating: 4.8, age: "8 weeks", gender: "Female", vaccinated: true, features: ["Energetic", "Independent", "Cold Weather"] },
+    { id: 6, name: "Beagle", price: "₹15,000 - ₹30,000", image: "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=300&h=200&fit=crop", breeder: "Hyderabad Hounds", location: "Hyderabad, Telangana", rating: 4.5, age: "9 weeks", gender: "Male", vaccinated: true, features: ["Gentle", "Friendly", "Curious"] },
+    { id: 7, name: "Poodle", price: "₹25,000 - ₹50,000", image: "https://images.unsplash.com/photo-1616190494016-1b8146d5ac8d?w=300&h=200&fit=crop", breeder: "Kolkata Kennels", location: "Kolkata, West Bengal", rating: 4.7, age: "11 weeks", gender: "Female", vaccinated: true, features: ["Intelligent", "Hypoallergenic", "Active"] },
+    { id: 8, name: "Bulldog", price: "₹35,000 - ₹65,000", image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&h=200&fit=crop", breeder: "Ahmedabad Animal House", location: "Ahmedabad, Gujarat", rating: 4.4, age: "10 weeks", gender: "Male", vaccinated: true, features: ["Calm", "Courageous", "Friendly"] },
+    { id: 9, name: "Border Collie", price: "₹30,000 - ₹60,000", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=200&fit=crop", breeder: "Jaipur Pet Junction", location: "Jaipur, Rajasthan", rating: 4.9, age: "7 weeks", gender: "Female", vaccinated: true, features: ["Highly Intelligent", "Energetic", "Responsive"] }
+  ];
+
+  // Cats from Cats page
+  const cats = [
+    { id: 1, name: "Persian Cat", price: "₹15,000 - ₹35,000", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=300&h=200&fit=crop", breeder: "Mumbai Cat Center", location: "Mumbai, Maharashtra", rating: 4.9, age: "8 weeks", gender: "Female", vaccinated: true, features: ["Long Hair", "Calm", "Indoor Cat"] },
+    { id: 2, name: "British Shorthair", price: "₹25,000 - ₹50,000", image: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=300&h=200&fit=crop", breeder: "Delhi Feline Friends", location: "Delhi, NCR", rating: 4.8, age: "10 weeks", gender: "Male", vaccinated: true, features: ["Gentle", "Good with Kids", "Low Maintenance"] },
+    { id: 3, name: "Maine Coon", price: "₹30,000 - ₹60,000", image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300&h=200&fit=crop", breeder: "Bangalore Cat Paradise", location: "Bangalore, Karnataka", rating: 4.7, age: "12 weeks", gender: "Female", vaccinated: true, features: ["Large Size", "Friendly", "Intelligent"] },
+    { id: 4, name: "Ragdoll", price: "₹20,000 - ₹45,000", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=300&h=200&fit=crop", breeder: "Chennai Cat Corner", location: "Chennai, Tamil Nadu", rating: 4.6, age: "9 weeks", gender: "Male", vaccinated: true, features: ["Docile", "Affectionate", "Blue Eyes"] },
+    { id: 5, name: "Scottish Fold", price: "₹35,000 - ₹60,000", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=200&fit=crop", breeder: "Pune Purr Palace", location: "Pune, Maharashtra", rating: 4.8, age: "11 weeks", gender: "Female", vaccinated: true, features: ["Folded Ears", "Playful", "Social"] },
+    { id: 6, name: "Siamese", price: "₹18,000 - ₹40,000", image: "https://images.unsplash.com/photo-1573824655653-592d84c5e9c4?w=300&h=200&fit=crop", breeder: "Hyderabad Cat House", location: "Hyderabad, Telangana", rating: 4.5, age: "7 weeks", gender: "Male", vaccinated: true, features: ["Vocal", "Intelligent", "Point Coloration"] },
+    { id: 7, name: "Bengal", price: "₹40,000 - ₹80,000", image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=300&h=200&fit=crop", breeder: "Kolkata Cat Kingdom", location: "Kolkata, West Bengal", rating: 4.9, age: "10 weeks", gender: "Female", vaccinated: true, features: ["Wild Pattern", "Energetic", "Athletic"] },
+    { id: 8, name: "Russian Blue", price: "₹25,000 - ₹50,000", image: "https://images.unsplash.com/photo-1596492784531-6e4eb5ea9993?w=300&h=200&fit=crop", breeder: "Ahmedabad Feline Friends", location: "Ahmedabad, Gujarat", rating: 4.7, age: "8 weeks", gender: "Male", vaccinated: true, features: ["Blue Coat", "Quiet", "Shy"] },
+    { id: 9, name: "Sphynx", price: "₹50,000 - ₹90,000", image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300&h=200&fit=crop", breeder: "Jaipur Cat Care", location: "Jaipur, Rajasthan", rating: 4.4, age: "12 weeks", gender: "Female", vaccinated: true, features: ["Hairless", "Warm", "Outgoing"] }
+  ];
+
+  // Combine all pets
   const availablePets = [
-    {
-      id: 1,
-      name: "Buddy",
-      breed: "Golden Retriever",
-      type: "dog",
-      price: "₹35,000",
-      image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&h=200&fit=crop",
-      owner: "Mumbai Pet Center",
-      location: "Mumbai, Maharashtra",
-      rating: 4.8,
-      age: "3 months",
-      gender: "Male",
-      vaccinated: true,
-      features: ["Playful", "Trained", "Good with Kids"],
-      description: "Buddy is a loving Golden Retriever puppy looking for his forever home."
-    },
-    {
-      id: 2,
-      name: "Whiskers",
-      breed: "Persian Cat",
-      type: "cat",
-      price: "₹20,000",
-      image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=300&h=200&fit=crop",
-      owner: "Delhi Cat Sanctuary",
-      location: "Delhi, NCR",
-      rating: 4.9,
-      age: "2 months",
-      gender: "Female",
-      vaccinated: true,
-      features: ["Calm", "House Trained", "Affectionate"],
-      description: "Whiskers is a beautiful Persian cat with a gentle personality."
-    },
-    {
-      id: 3,
-      name: "Max",
-      breed: "German Shepherd",
-      type: "dog",
-      price: "₹45,000",
-      image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=300&h=200&fit=crop",
-      owner: "Bangalore Dog House",
-      location: "Bangalore, Karnataka",
-      rating: 4.7,
-      age: "4 months",
-      gender: "Male",
-      vaccinated: true,
-      features: ["Guard Dog", "Intelligent", "Loyal"],
-      description: "Max is a strong and intelligent German Shepherd ready for training."
-    }
+    ...dogs.map(dog => ({ ...dog, type: "dog", owner: dog.breeder, description: `${dog.name} is a wonderful companion looking for a loving home.` })),
+    ...cats.map(cat => ({ ...cat, type: "cat", owner: cat.breeder, description: `${cat.name} is a beautiful feline ready for adoption.` }))
   ];
 
   const filteredPets = availablePets.filter(pet => {
     const matchesSearch = pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pet.breed.toLowerCase().includes(searchTerm.toLowerCase());
+                         pet.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesType = selectedType === "all" || pet.type === selectedType;
     return matchesSearch && matchesType;
   });
@@ -159,7 +140,7 @@ const AvailablePets = () => {
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
                       {pet.name}
                     </CardTitle>
-                    <p className="text-sm text-muted-foreground">{pet.breed}</p>
+                    <p className="text-sm text-muted-foreground">{pet.type === 'dog' ? 'Dog' : 'Cat'}</p>
                   </div>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -192,7 +173,16 @@ const AvailablePets = () => {
                 </div>
                 
                 <div className="flex gap-2">
-                  <Button className="flex-1">Adopt Now</Button>
+                  <Button 
+                    className="flex-1" 
+                    onClick={() => {
+                      const message = `I am interested about this pet, ${pet.name}`;
+                      const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                  >
+                    Adopt Now
+                  </Button>
                   <Button variant="outline" size="icon">
                     <Phone className="h-4 w-4" />
                   </Button>

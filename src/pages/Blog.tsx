@@ -73,6 +73,72 @@ const Blog = () => {
       readTime: "5 min read",
       category: "Pet Health",
       tags: ["Insurance", "Financial Planning", "Pet Health"]
+    },
+    {
+      id: 7,
+      title: "Vaccinations Schedule: Keeping Your Pet Healthy",
+      excerpt: "A comprehensive guide to pet vaccinations, including what vaccines your pet needs and when to get them.",
+      image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=250&fit=crop",
+      author: "Dr. Amit Singh",
+      date: "October 2, 2025",
+      readTime: "6 min read",
+      category: "Pet Health",
+      tags: ["Vaccinations", "Prevention", "Health"]
+    },
+    {
+      id: 8,
+      title: "Training Your Puppy: Basic Commands and House Training",
+      excerpt: "Start your puppy's training journey with these fundamental commands and house training techniques.",
+      image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=250&fit=crop",
+      author: "trainer Maya Patel",
+      date: "October 5, 2025",
+      readTime: "7 min read",
+      category: "Dog Care",
+      tags: ["Training", "Puppy", "Behavior"]
+    },
+    {
+      id: 9,
+      title: "Senior Pet Care: What Changes as Your Pet Ages",
+      excerpt: "Learn how to adapt your pet care routine as your furry friend enters their golden years.",
+      image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?w=400&h=250&fit=crop",
+      author: "Dr. Kavita Mehta",
+      date: "October 8, 2025",
+      readTime: "8 min read",
+      category: "Pet Health",
+      tags: ["Senior Care", "Aging", "Health"]
+    },
+    {
+      id: 10,
+      title: "Emergency Pet Care: What Every Owner Should Know",
+      excerpt: "Essential emergency care tips that could save your pet's life in critical situations.",
+      image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=250&fit=crop",
+      author: "Dr. Rohit Sharma",
+      date: "October 10, 2025",
+      readTime: "10 min read",
+      category: "Pet Health",
+      tags: ["Emergency", "First Aid", "Safety"]
+    },
+    {
+      id: 11,
+      title: "Choosing the Right Pet Food: Quality Matters",
+      excerpt: "Navigate the pet food aisle with confidence. Learn what to look for in quality pet nutrition.",
+      image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400&h=250&fit=crop",
+      author: "Dr. Sanjana Roy",
+      date: "October 12, 2025",
+      readTime: "6 min read",
+      category: "Pet Health",
+      tags: ["Nutrition", "Food Quality", "Health"]
+    },
+    {
+      id: 12,
+      title: "Cat Litter Training: Tips for Success",
+      excerpt: "Master the art of litter training with these proven techniques for a clean and happy home.",
+      image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&h=250&fit=crop",
+      author: "Cat Expert Lisa Chen",
+      date: "October 15, 2025",
+      readTime: "5 min read",
+      category: "Cat Care",
+      tags: ["Litter Training", "Hygiene", "Behavior"]
     }
   ];
 

@@ -3,9 +3,33 @@ import heroPets from "@/assets/hero-pets.jpg";
 import petProducts from "@/assets/pet-products.jpg";
 
 const HeroSection = () => {
+  const bannerTexts = [
+    "🐕 Premium Dog Breeds Available",
+    "🐱 Beautiful Cats for Adoption", 
+    "💝 Pet Products & Accessories",
+    "🏥 Professional Veterinary Care",
+    "🎓 Pet Training Services",
+    "🛁 Grooming & Spa Services"
+  ];
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-glow min-h-screen flex items-center">
-      <div className="container mx-auto px-4 py-20">
+      {/* Scrolling Banner */}
+      <div className="absolute top-0 left-0 w-full bg-accent text-accent-foreground py-2 overflow-hidden z-10">
+        <div className="flex animate-[scroll_30s_linear_infinite] whitespace-nowrap">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex">
+              {bannerTexts.map((text, index) => (
+                <span key={`${i}-${index}`} className="mx-8 font-medium">
+                  {text}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-20 mt-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left content */}
           <div className="text-white space-y-8">
