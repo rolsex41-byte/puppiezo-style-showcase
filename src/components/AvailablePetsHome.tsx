@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, MapPin, Calendar, Star } from "lucide-react";
+import { Heart, MapPin, Calendar, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AvailablePetsHome = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
   const featuredPets = [
     {
       id: 1,
@@ -56,6 +59,17 @@ const AvailablePetsHome = () => {
     }
   ];
 
+  const itemsPerView = 3;
+  const maxIndex = Math.max(0, featuredPets.length - itemsPerView);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
   return (
     <section id="available-pets" className="py-20 bg-gradient-to-br from-background via-muted/20 to-background">
       <div className="container mx-auto px-4">
@@ -68,71 +82,99 @@ const AvailablePetsHome = () => {
           </p>
         </div>
 
-        <div className="overflow-x-auto pb-4">
-          <div className="flex gap-6 min-w-max">
-            {featuredPets.map((pet) => (
-              <Card 
-                key={pet.id}
-                className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-2 hover:border-primary/30 cursor-pointer min-w-[320px] flex-shrink-0"
-              >
-                <div className="relative">
-                  <img 
-                    src={pet.image}
-                    alt={pet.name}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <Badge variant={pet.isVerified ? "default" : "secondary"} className="bg-primary text-primary-foreground">
-                      Verified
-                    </Badge>
-                  </div>
-                  <div className="absolute top-3 right-3">
-                    <Button variant="outline" size="icon" className="h-8 w-8 bg-white/90 hover:bg-white">
-                      <Heart className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-                
-                <CardHeader className="pb-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {pet.name}
-                      </CardTitle>
-                      <p className="text-muted-foreground">{pet.breed}</p>
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label="Previous pets"
+          >
+            <ChevronLeft className="h-6 w-6 text-primary" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            disabled={currentIndex >= maxIndex}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label="Next pets"
+          >
+            <ChevronRight className="h-6 w-6 text-primary" />
+          </button>
+
+          {/* Pets Container */}
+          <div className="overflow-hidden mx-12">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out gap-6"
+              style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+            >
+              {featuredPets.map((pet) => (
+                <Card 
+                  key={pet.id}
+                  className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-2 hover:border-primary/30 cursor-pointer flex-shrink-0"
+                  style={{ width: `calc(${100 / itemsPerView}% - 1rem)` }}
+                >
+                  <div className="relative">
+                    <img 
+                      src={pet.image}
+                      alt={pet.name}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <Badge variant={pet.isVerified ? "default" : "secondary"} className="bg-primary text-primary-foreground">
+                        Verified
+                      </Badge>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">{pet.rating}</span>
-                    </div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="space-y-4">
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      <span>{pet.age}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-4 w-4" />
-                      <span>{pet.location}</span>
+                    <div className="absolute top-3 right-3">
+                      <Button variant="outline" size="icon" className="h-8 w-8 bg-white/90 hover:bg-white">
+                        <Heart className="h-4 w-4" />
+                      </Button>
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-primary">
-                      {pet.price}
+                  <CardHeader className="pb-3">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                          {pet.name}
+                        </CardTitle>
+                        <p className="text-muted-foreground">{pet.breed}</p>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm font-medium">{pet.rating}</span>
+                      </div>
                     </div>
-                    <Badge variant="outline">{pet.type}</Badge>
-                  </div>
+                  </CardHeader>
                   
-                  <Button className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    View Details
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="space-y-4">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-4 w-4" />
+                        <span>{pet.age}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="h-4 w-4" />
+                        <span>{pet.location}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="text-2xl font-bold text-primary">
+                        {pet.price}
+                      </div>
+                      <Badge variant="outline">{pet.type}</Badge>
+                    </div>
+                    
+                    <Link to={pet.type === "Dog" ? `/dog-details/${pet.id}` : `/cat-details/${pet.id}`}>
+                      <Button className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                        View Details
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
 

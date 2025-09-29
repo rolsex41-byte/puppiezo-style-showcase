@@ -38,7 +38,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[70vh] overflow-hidden bg-gradient-to-br from-primary/10 to-primary-glow/20">
+    <section className="relative h-[80vh] overflow-hidden bg-gradient-to-br from-primary/10 to-primary-glow/20">
       {/* Hero Slides */}
       <div 
         className="flex h-full transition-transform duration-500 ease-in-out"
