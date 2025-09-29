@@ -56,6 +56,30 @@ const AvailablePetsHome = () => {
       rating: 4.7,
       isVerified: true,
       type: "Cat"
+    },
+    {
+      id: 5,
+      name: "Rocky",
+      breed: "German Shepherd",
+      age: "1.5 years",
+      location: "Pune",
+      price: "₹55,000",
+      image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=400&h=300&fit=crop",
+      rating: 4.8,
+      isVerified: true,
+      type: "Dog"
+    },
+    {
+      id: 6,
+      name: "Shadow",
+      breed: "Maine Coon",
+      age: "10 months",
+      location: "Hyderabad",
+      price: "₹40,000",
+      image: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=400&h=300&fit=crop",
+      rating: 4.9,
+      isVerified: true,
+      type: "Cat"
     }
   ];
 
@@ -166,7 +190,7 @@ const AvailablePetsHome = () => {
                       <Badge variant="outline">{pet.type}</Badge>
                     </div>
                     
-                    <Link to={pet.type === "Dog" ? `/dog-details/${pet.id}` : `/cat-details/${pet.id}`}>
+                    <Link to={pet.type === "Dog" ? `/dogs/${pet.id}` : `/cats/${pet.id}`}>
                       <Button className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         View Details
                       </Button>
